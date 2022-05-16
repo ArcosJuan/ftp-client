@@ -14,7 +14,9 @@ Funcionamiento:
 
 
 Ejemplo de codigo:
-[FTP GIT](https://github.com/E-Renshaw/ftp-socket-server-python/blob/master/Client/client.py)
+[FTP trucho GIT](https://github.com/E-Renshaw/ftp-socket-server-python/blob/master/Client/client.py)
+
+[FTP python GIT](https://github.com/python/cpython/blob/9b027d4cea57e98c76f5176cc3188dc81603356c/Lib/ftplib.py#L1)
 
 Es usado para transferir archivos a computadoras remotas a través de una red que implemente los protocolos TCP/IP.
 
