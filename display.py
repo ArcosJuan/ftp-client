@@ -10,13 +10,13 @@ class Display:
 
 
     @classmethod
-    def ask_question(cls, question: str):
+    def ask_question(cls, question: str=''):
         """ Receives a question, asks it to the user and returns his answer.
             Also catches the user's exit attempts 
             and redirects them to the save method.
         """
 
-        print(question)
+        if question: print(question)
         answ = input()
         print('')
 
@@ -24,6 +24,36 @@ class Display:
         else: return answ
 
 
+    @classmethod
+    def execute_operation(cls, msg, method, *args):
+
+        print(f"{msg}...\r", end='') 
+        result = method(*args)
+        print("Operation completed!")
+        cls.clear()
+        return result
+
+
     @staticmethod
     def clear(): os.system('cls' if os.name=='nt' else 'clear')
+
+
+    @staticmethod
+    def list_to_str(list):
+        """ Receives a list and returns a human-readable string of elements.
+        """
+
+        string = ''
+        for element in list:
+            string += str(element) + ' \n'
+        return string
+
+
+    @staticmethod
+    def enum_to_list(enum):
+        """ Returns the list of all the elements 
+            of a given enum and its values.
+        """
+        
+        return [f'{str(element.value)}: {str(element)}' for element in enum]
 
