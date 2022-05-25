@@ -1,7 +1,13 @@
-# FTP-CLIENT
+# FTP - File Transfer Protocol
 
+## Que es un protocolo y de donde sale.
+
+Un protocolo es un conjunto de reglas y procedimientos que permiten el exitoso envio y recibimiento de mensajes entre distintos dispositivos. Estos suelen ser creados por organizaciones de normalización.
+
+En cuanto al protocolo FTP, este se encuentra descrito en el documento RFC (Request For Comments) creado por la organización de normalización IETF (Internet Engineering Task Force). Además de describir el protocolo FTP, RFC tambien describe muchos otros protocolos estandarizados.
+
+## Referencias:
 Un protocolo es un grupo preestablecido de reglas que determinan como se tranferira la informacion entre diferentes dispositivos de la red.
-
 
 FTP es un protocolo de transferencia de archivos.
 
