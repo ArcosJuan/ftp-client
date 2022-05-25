@@ -91,21 +91,20 @@ class FTPClient:
 
 
     def make_dir(self):
-        dir = Display.ask_question("Enter the path of the new directory:")
+        dir = Display.ask_question("Enter the name of the new directory:")
         self.ftp.mkd(dir)  
         Display.clear()
 
 
     def remove_dir(self):
-        dir = Display.ask_question("Enter the path of the directory to delete:")
+        dir = Display.ask_question("Enter the name of the directory to delete:")
         self.ftp.rmd(dir)  
         Display.clear()
 
 
     def size(self):
         file = Display.ask_question("Enter the name of a file:")
-        self.ftp.rmd(file)  
-        Display.clear()
+        print(f'{self.ftp.size(file)} Bytes')
 
 
     def rename(self):
