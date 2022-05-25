@@ -1,3 +1,4 @@
+import os
 from ftplib import FTP
 from display import Display
 from ftp_option import FTPOption
@@ -17,9 +18,11 @@ class FTPClient:
             FTPOption.LIST_DIRECTORY: self.ftp.dir,
             FTPOption.MAKE_DIRECTORY: self.make_dir,
             FTPOption.REMOVE_DIRECTORY: self.remove_dir,
-            FTPOption.SIZE: self.size,
-            FTPOption.RENAME: self.rename,
-            FTPOption.DELETE: self.delete,
+            FTPOption.FILE_SIZE: self.size,
+            FTPOption.RENAME_FILE: self.rename,
+            FTPOption.DELETE_FILE: self.delete,
+            FTPOption.DOWNLOAD_FILE: self.download,
+            FTPOption.UPLOAD_FILE: self.upload,
         }
         
         Display.add_exit_methods([self.ftp.quit])
@@ -115,6 +118,26 @@ class FTPClient:
     def delete(self):
         file = Display.ask_question("Enter the name of a file:")
         self.ftp.delete(file)  
+        Display.clear()
+
+    def download(self):
+        file_name = Display.ask_question("Enter the name of a file:")
+        save_ubication = Display.ask_question("Enter a save location:")
+
+        # If you receive a directory as a response save the response 
+        # to a file with the same name as the original.
+        if os.path.isdir(save_ubication):  save_ubication += f'/{file_name}'
+        with open(save_ubication, 'wb') as new_file:
+            self.ftp.retrbinary(f'RETR {file_name}', new_file.write) 
+        Display.clear()
+
+
+    def upload(self):
+        file_path = Display.ask_question("Enter the path of a file:")
+        save_ubication = Display.ask_question("Enter a save location:")
+
+        with open(file_path, 'rb') as file:
+            self.ftp.storbinary(f'STOR {save_ubication}', file) 
         Display.clear()
 
 
