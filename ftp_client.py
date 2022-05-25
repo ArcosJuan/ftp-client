@@ -21,10 +21,15 @@ class FTPClient:
             FTPOption.RENAME: self.rename,
             FTPOption.DELETE: self.delete,
         }
+        
         Display.add_exit_methods([self.ftp.quit])
 
-        self.connect()
-        self.main()
+        try:
+            self.connect()
+            self.main()
+
+        except KeyboardInterrupt:
+            Display.exit()
 
       
     def execute_operation(self, msg, method, *args):

@@ -7,8 +7,13 @@ class Display:
 
     @classmethod
     def add_exit_methods(cls, methods:list): cls.EXIT_METHODS.extend(methods)
+    
 
-
+    @classmethod
+    def exit(cls):
+        [method() for method in cls.EXIT_METHODS]
+    
+    
     @classmethod
     def ask_question(cls, question: str=''):
         """ Receives a question, asks it to the user and returns his answer.
@@ -20,7 +25,7 @@ class Display:
         answ = input()
         print('')
 
-        if answ == 'quit' or answ == 'exit': [method() for method in cls.EXIT_METHODS]
+        if answ == 'quit' or answ == 'exit': cls.exit()
         else: return answ
 
 
