@@ -72,12 +72,15 @@ class FTPClient:
         while 1:
             try:
                 print(f"\nYour current directory is: {self.ftp.pwd()}")
-                print("Select an option:")
+                print("Options:")
                 print(Display.list_to_str(Display.enum_to_list(FTPOption)))
-                option = int(Display.ask_question())
-                assert option in self.ftp_methods, f'Invalid option [{option}]'
-                self.ftp_methods[option]()              
-                
+                option = Display.ask_question("Select an option or type a ftp command:")
+                try:
+                    self.ftp_methods[int(option)]() 
+                except:
+                    self.ftp.putcmd(option) 
+                    print(f'Response: {self.ftp.voidresp()}')
+                    
             except Exception as error:
                 Display.clear()
                 print(f"Operation failed: {error}")
