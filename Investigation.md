@@ -70,6 +70,7 @@ Al iniciar la aplicación se le solicitará ingresar:
 
 Una vez establecida la conexión, se le presentan en pantalla todos los comandos disponibles. Al ingresar el número de la opción que corresponda al comando que desee ejecutar, el mismo, se ejecutará. En caso de necesitar parámetros se le solicitarán en pantalla.
 
+A tener en cuenta: Si se cierra la conexión de manera inadecuada, cabe la posibilidad de que no se pueda volver a ejecutar el programa inmediatamente debido a que al estar FTP construido por encima de TCP, las conexiones TCP, por protocolo, permanecen abiertas un tiempo para garantizar la confiabilidad de la conexión.
 
 ### Referencias
 RFCs:
