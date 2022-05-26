@@ -1,7 +1,9 @@
-import os
+#!/usr/bin/env python3
+
+from os import path
 from ftplib import FTP
-from display import Display
-from ftp_option import FTPOption
+from src.display import Display
+from src.ftp_option import FTPOption
 
 
 class FTPClient:
