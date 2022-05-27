@@ -22,7 +22,7 @@ FTP funciona encima de TCP y sigue el modelo Cliente-Servidor. Para transferir a
 Una vez establecida la conexión el cliente poseerá permisos según sus credenciales (nombre y contraseña). Es posible, igualmente, establecer conexiones anónimas, osea, que no requieren de ninguna credencial.
 
 ### Control de errores
-FTP no tiene detección de pérdida de datos durante la transmisión, este nivel de errores son manejados por el protocolo TCP encima del cual está construido.
+FTP no tiene detección de pérdida de datos durante la transmisión, este nivel de errores son manejados por el protocolo TCP encima del cual está construido. Por este mismo motivo la conexión no brinda ningún tipo de seguridad. Para una conexión segura existe el protocolo SFTP, que se aprovecha del protocolo SSH.
 
 ##  Implementacion
 Implementamos el protocolo FTP para la creación de [ftp-client](https://github.com/ArcosJuan/ftp-client), una interfaz de cliente por terminal que simplifica el envío de comandos al servidor. Las herramientas que se usaron para esta implementación fueron python y su librería ftplib.
